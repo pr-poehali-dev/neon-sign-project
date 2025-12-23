@@ -8,6 +8,8 @@ import { useState } from "react";
 
 const Index = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", comment: "" });
+  const [quizStep, setQuizStep] = useState(0);
+  const [quizAnswers, setQuizAnswers] = useState<Record<number, string>>({});
 
   const portfolioItems = [
     {
@@ -30,6 +32,45 @@ const Index = () => {
       tags: ["Комплекс", "LED"],
       description: "Полное оформление фасада ТЦ с LED-системами и брендированными вывесками",
       image: "https://cdn.poehali.dev/projects/749f9227-2797-437d-bc42-a5f4cb3682f8/files/791876c8-bf2c-4f80-9951-57392b9ce176.jpg"
+    }
+  ];
+
+  const newsItems = [
+    {
+      id: 1,
+      date: "15.12.2024",
+      category: "Проекты",
+      title: "Завершили оформление нового ресторана премиум-класса",
+      image: "https://cdn.poehali.dev/projects/749f9227-2797-437d-bc42-a5f4cb3682f8/files/e289e08c-7186-453e-b582-4bd3209f97f5.jpg"
+    },
+    {
+      id: 2,
+      date: "10.12.2024",
+      category: "Технологии",
+      title: "Новые материалы для неоновых вывесок: гибкий LED-неон",
+      image: "https://cdn.poehali.dev/projects/749f9227-2797-437d-bc42-a5f4cb3682f8/files/3c152089-c652-4b41-a538-b4cf0dbbdff9.jpg"
+    },
+    {
+      id: 3,
+      date: "05.12.2024",
+      category: "Компания",
+      title: "Расширили производство: +30% мощностей в 2024 году",
+      image: "https://cdn.poehali.dev/projects/749f9227-2797-437d-bc42-a5f4cb3682f8/files/1e0de70c-b163-45b3-b19f-491526c9f335.jpg"
+    }
+  ];
+
+  const quizQuestions = [
+    {
+      question: "Какой тип объекта вы оформляете?",
+      options: ["Ресторан / Кафе", "Магазин / Бутик", "Офис / Бизнес-центр", "ТЦ / Торговая недвижимость"]
+    },
+    {
+      question: "Где планируется размещение?",
+      options: ["Фасад здания", "Внутри помещения", "Витрина", "Комплексное оформление"]
+    },
+    {
+      question: "Какой бюджет проекта?",
+      options: ["До 300 000 ₽", "300 000 - 800 000 ₽", "800 000 - 2 000 000 ₽", "Более 2 000 000 ₽"]
     }
   ];
 
@@ -67,6 +108,13 @@ const Index = () => {
     console.log("Form submitted:", formData);
   };
 
+  const handleQuizAnswer = (option: string) => {
+    setQuizAnswers({ ...quizAnswers, [quizStep]: option });
+    if (quizStep < quizQuestions.length - 1) {
+      setQuizStep(quizStep + 1);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-border z-50">
@@ -75,41 +123,121 @@ const Index = () => {
           <nav className="hidden md:flex gap-12 text-sm">
             <a href="#services" className="hover:opacity-60 transition-opacity">УСЛУГИ</a>
             <a href="#portfolio" className="hover:opacity-60 transition-opacity">ПОРТФОЛИО</a>
-            <a href="#about" className="hover:opacity-60 transition-opacity">О КОМПАНИИ</a>
+            <a href="#news" className="hover:opacity-60 transition-opacity">НОВОСТИ</a>
             <a href="#contact" className="hover:opacity-60 transition-opacity">КОНТАКТЫ</a>
           </nav>
           <Button variant="default" size="sm" className="text-xs font-medium">ЗАКАЗАТЬ РАСЧЁТ</Button>
         </div>
       </header>
 
-      <section className="pt-48 pb-32 px-6">
-        <div className="container mx-auto max-w-7xl">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold mb-12 leading-[0.9] animate-fade-in">
-            ВЫВЕСКИ<br />И ОФОРМЛЕНИЕ,<br />КОТОРЫЕ РАБОТАЮТ
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="https://cdn.poehali.dev/projects/749f9227-2797-437d-bc42-a5f4cb3682f8/files/1e0de70c-b163-45b3-b19f-491526c9f335.jpg"
+        >
+          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/50" />
+        
+        <div className="relative z-10 container mx-auto px-6 max-w-7xl text-white">
+          <h1 className="text-6xl md:text-8xl lg:text-[12rem] font-heading font-bold mb-12 leading-[0.85] animate-fade-in">
+            ВЫВЕСКИ<br />И ОФОРМЛЕНИЕ
           </h1>
           <div className="grid md:grid-cols-2 gap-16 items-end">
             <div>
-              <p className="text-lg md:text-xl mb-8 leading-relaxed">
-                Световые и неоновые вывески, комплексное оформление бизнеса. От идеи до установки.
+              <p className="text-xl md:text-2xl mb-12 leading-relaxed">
+                СОБСТВЕННОЕ ПРОИЗВОДСТВО<br />БЕЗ ПОСРЕДНИКОВ
               </p>
-              <div className="flex gap-3 mb-12">
-                <div className="text-5xl font-heading font-bold">25+</div>
-                <div className="text-sm text-muted-foreground">ЛЕТ<br />ОПЫТА</div>
-              </div>
-              <div className="flex gap-3">
-                <div className="text-5xl font-heading font-bold">15K+</div>
-                <div className="text-sm text-muted-foreground">ПРОЕКТОВ</div>
+              <div className="flex gap-8">
+                <div className="flex gap-3">
+                  <div className="text-6xl font-heading font-bold">25+</div>
+                  <div className="text-sm opacity-80">ЛЕТ<br />ОПЫТА</div>
+                </div>
+                <div className="flex gap-3">
+                  <div className="text-6xl font-heading font-bold">15K+</div>
+                  <div className="text-sm opacity-80">ПРОЕКТОВ</div>
+                </div>
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <Button size="lg" className="w-full justify-start text-base h-16 font-medium">
+              <Button size="lg" className="w-full justify-start text-base h-16 font-medium bg-white text-black hover:bg-white/90">
                 ПРОЙТИ БЫСТРЫЙ КВИЗ
                 <Icon name="ArrowRight" className="ml-auto" size={20} />
               </Button>
-              <Button size="lg" variant="outline" className="w-full justify-start text-base h-16 font-medium">
+              <Button size="lg" variant="outline" className="w-full justify-start text-base h-16 font-medium border-white text-white hover:bg-white/10">
                 СМОТРЕТЬ ПОРТФОЛИО
                 <Icon name="ArrowRight" className="ml-auto" size={20} />
               </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-32 px-6 border-t border-border">
+        <div className="container mx-auto max-w-7xl">
+          <h2 className="text-5xl md:text-8xl font-heading font-bold mb-24 uppercase">
+            ПОДБЕРЁМ<br />РЕШЕНИЕ ЗА 3 ВОПРОСА
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-16">
+            <div>
+              <div className="mb-8">
+                <div className="text-sm text-muted-foreground mb-4 uppercase tracking-wider">
+                  Вопрос {quizStep + 1} из {quizQuestions.length}
+                </div>
+                <div className="h-2 bg-muted rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-foreground transition-all duration-500"
+                    style={{ width: `${((quizStep + 1) / quizQuestions.length) * 100}%` }}
+                  />
+                </div>
+              </div>
+              
+              <h3 className="text-3xl md:text-5xl font-heading font-bold mb-12 leading-tight">
+                {quizQuestions[quizStep].question}
+              </h3>
+              
+              <div className="space-y-4">
+                {quizQuestions[quizStep].options.map((option, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleQuizAnswer(option)}
+                    className="w-full text-left p-6 border-2 border-border hover:border-foreground transition-all duration-300 group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-lg font-medium">{option}</span>
+                      <Icon name="ArrowRight" className="opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" size={20} />
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              {quizStep > 0 && (
+                <Button 
+                  variant="ghost" 
+                  className="mt-8"
+                  onClick={() => setQuizStep(quizStep - 1)}
+                >
+                  <Icon name="ArrowLeft" className="mr-2" size={16} />
+                  НАЗАД
+                </Button>
+              )}
+            </div>
+
+            <div className="relative h-[600px]">
+              <img 
+                src="https://cdn.poehali.dev/projects/749f9227-2797-437d-bc42-a5f4cb3682f8/files/e289e08c-7186-453e-b582-4bd3209f97f5.jpg"
+                alt="Производство вывесок"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-sm p-8">
+                <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wider">Наше производство</p>
+                <h4 className="text-2xl font-heading font-bold uppercase">Контроль качества на каждом этапе</h4>
+              </div>
             </div>
           </div>
         </div>
@@ -156,7 +284,7 @@ const Index = () => {
 
       <section id="services" className="py-32 px-6 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <h2 className="text-5xl md:text-7xl font-heading font-bold mb-24 uppercase">
+          <h2 className="text-5xl md:text-8xl font-heading font-bold mb-24 uppercase">
             НАШИ УСЛУГИ
           </h2>
           <div className="grid md:grid-cols-3 gap-16">
@@ -179,14 +307,14 @@ const Index = () => {
       <section id="portfolio" className="py-32 px-6 border-t border-border bg-muted/30">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-24">
-            <h2 className="text-5xl md:text-7xl font-heading font-bold mb-6 uppercase">ПОРТФОЛИО</h2>
-            <p className="text-xl text-muted-foreground">15 000+ реализованных проектов</p>
+            <h2 className="text-5xl md:text-8xl font-heading font-bold mb-6 uppercase">ПОРТФОЛИО</h2>
+            <p className="text-2xl text-muted-foreground">15 000+ реализованных проектов</p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {portfolioItems.map((item) => (
               <div key={item.id} className="group cursor-pointer">
-                <div className="relative overflow-hidden mb-6 aspect-[4/3]">
+                <div className="relative overflow-hidden mb-6 aspect-[16/10]">
                   <img 
                     src={item.image} 
                     alt={item.title}
@@ -198,8 +326,8 @@ const Index = () => {
                     <Badge key={idx} variant="outline" className="rounded-none">{tag}</Badge>
                   ))}
                 </div>
-                <h3 className="text-xl font-heading font-semibold mb-3 uppercase">{item.title}</h3>
-                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">{item.description}</p>
+                <h3 className="text-2xl md:text-3xl font-heading font-semibold mb-4 uppercase leading-tight">{item.title}</h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">{item.description}</p>
                 <div className="flex gap-4">
                   <Button size="sm" className="text-xs">СМОТРЕТЬ КЕЙС</Button>
                   <Button size="sm" variant="outline" className="text-xs">РАССЧИТАТЬ</Button>
@@ -218,7 +346,7 @@ const Index = () => {
 
       <section className="py-32 px-6 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <h2 className="text-5xl md:text-7xl font-heading font-bold mb-24 uppercase text-center">
+          <h2 className="text-5xl md:text-8xl font-heading font-bold mb-24 uppercase text-center">
             ПОЧЕМУ ВАВИЛОН
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
@@ -236,8 +364,8 @@ const Index = () => {
 
       <section className="py-32 px-6 border-t border-border bg-muted/30">
         <div className="container mx-auto max-w-7xl">
-          <h2 className="text-5xl md:text-7xl font-heading font-bold mb-12 uppercase">КАК МЫ РАБОТАЕМ</h2>
-          <p className="text-xl text-muted-foreground mb-24">Полный цикл — от идеи до установки</p>
+          <h2 className="text-5xl md:text-8xl font-heading font-bold mb-12 uppercase">КАК МЫ РАБОТАЕМ</h2>
+          <p className="text-2xl text-muted-foreground mb-24">Полный цикл — от идеи до установки</p>
           
           <div className="space-y-16">
             {[
@@ -261,10 +389,47 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="news" className="py-32 px-6 border-t border-border">
+        <div className="container mx-auto max-w-7xl">
+          <div className="mb-24">
+            <h2 className="text-5xl md:text-8xl font-heading font-bold mb-6 uppercase">НОВОСТИ</h2>
+            <p className="text-2xl text-muted-foreground">Последние проекты и достижения</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {newsItems.map((news) => (
+              <article key={news.id} className="group cursor-pointer">
+                <div className="relative overflow-hidden mb-6 aspect-[4/3]">
+                  <img 
+                    src={news.image} 
+                    alt={news.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground uppercase tracking-wider">
+                  <span>{news.date}</span>
+                  <span>•</span>
+                  <Badge variant="outline" className="rounded-none">{news.category}</Badge>
+                </div>
+                <h3 className="text-xl font-heading font-semibold uppercase leading-tight group-hover:opacity-60 transition-opacity">
+                  {news.title}
+                </h3>
+              </article>
+            ))}
+          </div>
+
+          <div className="text-center mt-16">
+            <Button variant="outline" size="lg" className="font-medium">
+              ВСЕ НОВОСТИ <Icon name="ArrowRight" className="ml-3" size={18} />
+            </Button>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="py-32 px-6 border-t border-border">
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-heading font-bold mb-6 uppercase">
+            <h2 className="text-4xl md:text-7xl font-heading font-bold mb-6 uppercase leading-tight">
               ПОЛУЧИТЕ РАСЧЁТ<br />ЗА 24 ЧАСА
             </h2>
             <p className="text-muted-foreground">Без спама, ответ в течение 2 часов</p>
