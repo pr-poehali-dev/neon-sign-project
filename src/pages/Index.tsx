@@ -56,10 +56,10 @@ const Index = () => {
     { icon: "TrendingUp", text: "15 000+ проектов" },
     { icon: "Factory", text: "Собственное производство" },
     { icon: "ShieldCheck", text: "Гарантия до 60 месяцев" },
-    { icon: "DollarSign", text: "Честные цены без посредников" },
+    { icon: "DollarSign", text: "Честные цены" },
     { icon: "Clock", text: "Расчёт за 24 часа" },
-    { icon: "CheckCircle", text: "Полный цикл работ" },
-    { icon: "Wrench", text: "Поддержка и ремонт" }
+    { icon: "CheckCircle", text: "Полный цикл" },
+    { icon: "Wrench", text: "Поддержка" }
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -69,75 +69,84 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="text-2xl font-heading font-bold text-primary">Вавилон</div>
-          <nav className="hidden md:flex gap-8">
-            <a href="#services" className="hover:text-primary transition-colors">Услуги</a>
-            <a href="#portfolio" className="hover:text-primary transition-colors">Портфолио</a>
-            <a href="#about" className="hover:text-primary transition-colors">О компании</a>
-            <a href="#contact" className="hover:text-primary transition-colors">Контакты</a>
+      <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md border-b border-border z-50">
+        <div className="container mx-auto px-6 py-6 flex items-center justify-between">
+          <div className="text-xl font-heading font-bold tracking-tight">ВАВИЛОН</div>
+          <nav className="hidden md:flex gap-12 text-sm">
+            <a href="#services" className="hover:opacity-60 transition-opacity">УСЛУГИ</a>
+            <a href="#portfolio" className="hover:opacity-60 transition-opacity">ПОРТФОЛИО</a>
+            <a href="#about" className="hover:opacity-60 transition-opacity">О КОМПАНИИ</a>
+            <a href="#contact" className="hover:opacity-60 transition-opacity">КОНТАКТЫ</a>
           </nav>
-          <Button variant="default" size="sm">Заказать расчёт</Button>
+          <Button variant="default" size="sm" className="text-xs font-medium">ЗАКАЗАТЬ РАСЧЁТ</Button>
         </div>
       </header>
 
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 animate-fade-in">
-            Вывески и оформление,<br />которые <span className="text-primary">работают</span>
+      <section className="pt-48 pb-32 px-6">
+        <div className="container mx-auto max-w-7xl">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold mb-12 leading-[0.9] animate-fade-in">
+            ВЫВЕСКИ<br />И ОФОРМЛЕНИЕ,<br />КОТОРЫЕ РАБОТАЮТ
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Световые и неоновые вывески, комплексное оформление бизнеса.
-          </p>
-          <p className="text-lg text-muted-foreground mb-12 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            От идеи до установки. 25+ лет опыта, 15 000+ проектов.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in" style={{ animationDelay: '0.4s' }}>
-            <Button size="lg" className="text-lg px-8 py-6">
-              <Icon name="Sparkles" className="mr-2" size={20} />
-              Пройти быстрый квиз
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-              <Icon name="Eye" className="mr-2" size={20} />
-              Смотреть портфолио
-            </Button>
+          <div className="grid md:grid-cols-2 gap-16 items-end">
+            <div>
+              <p className="text-lg md:text-xl mb-8 leading-relaxed">
+                Световые и неоновые вывески, комплексное оформление бизнеса. От идеи до установки.
+              </p>
+              <div className="flex gap-3 mb-12">
+                <div className="text-5xl font-heading font-bold">25+</div>
+                <div className="text-sm text-muted-foreground">ЛЕТ<br />ОПЫТА</div>
+              </div>
+              <div className="flex gap-3">
+                <div className="text-5xl font-heading font-bold">15K+</div>
+                <div className="text-sm text-muted-foreground">ПРОЕКТОВ</div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              <Button size="lg" className="w-full justify-start text-base h-16 font-medium">
+                ПРОЙТИ БЫСТРЫЙ КВИЗ
+                <Icon name="ArrowRight" className="ml-auto" size={20} />
+              </Button>
+              <Button size="lg" variant="outline" className="w-full justify-start text-base h-16 font-medium">
+                СМОТРЕТЬ ПОРТФОЛИО
+                <Icon name="ArrowRight" className="ml-auto" size={20} />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-card/30">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="group hover:scale-105 transition-all duration-300 hover:border-primary cursor-pointer">
-              <CardContent className="p-8">
-                <Icon name="Briefcase" className="mb-4 text-primary" size={40} />
-                <h3 className="text-xl font-heading font-semibold mb-3">Собственник бизнеса</h3>
-                <p className="text-muted-foreground mb-4">Подберём вывеску под ваш формат и бюджет</p>
-                <Button variant="ghost" className="group-hover:text-primary">
-                  Выбрать решение <Icon name="ArrowRight" className="ml-2" size={16} />
+      <section className="py-24 px-6 border-t border-border">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid md:grid-cols-3 gap-12">
+            <Card className="border-0 shadow-none group cursor-pointer">
+              <CardContent className="p-0">
+                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">01</div>
+                <h3 className="text-xl font-heading font-semibold mb-4 uppercase">Собственник бизнеса</h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">Подберём вывеску под ваш формат и бюджет</p>
+                <Button variant="link" className="p-0 group-hover:translate-x-2 transition-transform">
+                  ВЫБРАТЬ РЕШЕНИЕ <Icon name="ArrowRight" className="ml-2" size={16} />
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="group hover:scale-105 transition-all duration-300 hover:border-secondary cursor-pointer">
-              <CardContent className="p-8">
-                <Icon name="Palette" className="mb-4 text-secondary" size={40} />
-                <h3 className="text-xl font-heading font-semibold mb-3">Дизайнер</h3>
-                <p className="text-muted-foreground mb-4">Материалы, технологии, примеры реализации</p>
-                <Button variant="ghost" className="group-hover:text-secondary">
-                  Смотреть материалы <Icon name="ArrowRight" className="ml-2" size={16} />
+            <Card className="border-0 shadow-none group cursor-pointer">
+              <CardContent className="p-0">
+                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">02</div>
+                <h3 className="text-xl font-heading font-semibold mb-4 uppercase">Дизайнер</h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">Материалы, технологии, примеры реализации</p>
+                <Button variant="link" className="p-0 group-hover:translate-x-2 transition-transform">
+                  СМОТРЕТЬ МАТЕРИАЛЫ <Icon name="ArrowRight" className="ml-2" size={16} />
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="group hover:scale-105 transition-all duration-300 hover:border-accent cursor-pointer">
-              <CardContent className="p-8">
-                <Icon name="Building2" className="mb-4 text-accent" size={40} />
-                <h3 className="text-xl font-heading font-semibold mb-3">Застройщик / архитектор</h3>
-                <p className="text-muted-foreground mb-4">Комплексное оформление объектов под ключ</p>
-                <Button variant="ghost" className="group-hover:text-accent">
-                  Смотреть проекты <Icon name="ArrowRight" className="ml-2" size={16} />
+            <Card className="border-0 shadow-none group cursor-pointer">
+              <CardContent className="p-0">
+                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">03</div>
+                <h3 className="text-xl font-heading font-semibold mb-4 uppercase">Застройщик / Архитектор</h3>
+                <p className="text-muted-foreground mb-6 leading-relaxed">Комплексное оформление объектов под ключ</p>
+                <Button variant="link" className="p-0 group-hover:translate-x-2 transition-transform">
+                  СМОТРЕТЬ ПРОЕКТЫ <Icon name="ArrowRight" className="ml-2" size={16} />
                 </Button>
               </CardContent>
             </Card>
@@ -145,222 +154,198 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-20 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-16">
-            Наши <span className="text-primary">услуги</span>
+      <section id="services" className="py-32 px-6 border-t border-border">
+        <div className="container mx-auto max-w-7xl">
+          <h2 className="text-5xl md:text-7xl font-heading font-bold mb-24 uppercase">
+            НАШИ УСЛУГИ
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-16">
             {services.map((service, idx) => (
-              <Card key={idx} className="hover:shadow-xl transition-all duration-300 group">
-                <CardContent className="p-8">
-                  <div className="bg-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                    <Icon name={service.icon} className="text-primary" size={32} />
-                  </div>
-                  <h3 className="text-2xl font-heading font-semibold mb-4">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
-                  <Button variant="link" className="p-0 text-primary">
-                    Смотреть услуги <Icon name="ArrowRight" className="ml-2" size={16} />
-                  </Button>
-                </CardContent>
-              </Card>
+              <div key={idx} className="group cursor-pointer">
+                <div className="mb-8 transition-transform group-hover:scale-110">
+                  <Icon name={service.icon} size={48} strokeWidth={1.5} />
+                </div>
+                <h3 className="text-2xl font-heading font-semibold mb-6 uppercase">{service.title}</h3>
+                <p className="text-muted-foreground mb-8 leading-relaxed">{service.description}</p>
+                <Button variant="link" className="p-0 text-sm group-hover:translate-x-2 transition-transform">
+                  СМОТРЕТЬ УСЛУГИ <Icon name="ArrowRight" className="ml-2" size={14} />
+                </Button>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="portfolio" className="py-20 px-4 bg-card/30">
-        <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-6">
-            <span className="text-secondary">Портфолио</span>
-          </h2>
-          <p className="text-center text-muted-foreground mb-12 text-lg">15 000+ реализованных проектов</p>
+      <section id="portfolio" className="py-32 px-6 border-t border-border bg-muted/30">
+        <div className="container mx-auto max-w-7xl">
+          <div className="mb-24">
+            <h2 className="text-5xl md:text-7xl font-heading font-bold mb-6 uppercase">ПОРТФОЛИО</h2>
+            <p className="text-xl text-muted-foreground">15 000+ реализованных проектов</p>
+          </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioItems.map((item) => (
-              <Card key={item.id} className="overflow-hidden group cursor-pointer hover:shadow-2xl transition-all duration-300">
-                <div className="relative overflow-hidden h-64">
+              <div key={item.id} className="group cursor-pointer">
+                <div className="relative overflow-hidden mb-6 aspect-[4/3]">
                   <img 
                     src={item.image} 
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <CardContent className="p-6">
-                  <div className="flex gap-2 mb-3">
-                    {item.tags.map((tag, idx) => (
-                      <Badge key={idx} variant="secondary">{tag}</Badge>
-                    ))}
-                  </div>
-                  <h3 className="text-xl font-heading font-semibold mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground mb-4">{item.description}</p>
-                  <div className="flex gap-3">
-                    <Button size="sm" variant="default">Смотреть кейс</Button>
-                    <Button size="sm" variant="outline">Рассчитать похожий</Button>
-                  </div>
-                </CardContent>
-              </Card>
+                <div className="flex gap-2 mb-4">
+                  {item.tags.map((tag, idx) => (
+                    <Badge key={idx} variant="outline" className="rounded-none">{tag}</Badge>
+                  ))}
+                </div>
+                <h3 className="text-xl font-heading font-semibold mb-3 uppercase">{item.title}</h3>
+                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">{item.description}</p>
+                <div className="flex gap-4">
+                  <Button size="sm" className="text-xs">СМОТРЕТЬ КЕЙС</Button>
+                  <Button size="sm" variant="outline" className="text-xs">РАССЧИТАТЬ</Button>
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Button size="lg" variant="outline">
-              Показать все проекты <Icon name="Grid" className="ml-2" size={18} />
+          <div className="text-center mt-20">
+            <Button size="lg" variant="outline" className="font-medium">
+              ВСЕ ПРОЕКТЫ <Icon name="Grid" className="ml-3" size={18} />
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-16">
-            Почему <span className="text-accent">Вавилон</span>?
+      <section className="py-32 px-6 border-t border-border">
+        <div className="container mx-auto max-w-7xl">
+          <h2 className="text-5xl md:text-7xl font-heading font-bold mb-24 uppercase text-center">
+            ПОЧЕМУ ВАВИЛОН
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
             {advantages.map((adv, idx) => (
               <div key={idx} className="text-center group">
-                <div className="bg-accent/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-all duration-300 group-hover:scale-110">
-                  <Icon name={adv.icon} className="text-accent" size={36} />
+                <div className="mb-6 flex justify-center group-hover:scale-110 transition-transform">
+                  <Icon name={adv.icon} size={40} strokeWidth={1.5} />
                 </div>
-                <p className="font-medium">{adv.text}</p>
+                <p className="text-sm font-medium uppercase tracking-wide">{adv.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-card/30">
-        <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-6">
-            Как мы <span className="text-primary">работаем</span>
-          </h2>
-          <p className="text-center text-muted-foreground mb-16 text-lg">Полный цикл — от идеи до установки</p>
+      <section className="py-32 px-6 border-t border-border bg-muted/30">
+        <div className="container mx-auto max-w-7xl">
+          <h2 className="text-5xl md:text-7xl font-heading font-bold mb-12 uppercase">КАК МЫ РАБОТАЕМ</h2>
+          <p className="text-xl text-muted-foreground mb-24">Полный цикл — от идеи до установки</p>
           
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="space-y-16">
             {[
-              { icon: "MessageSquare", title: "Консультация и расчёт", desc: "Обсудим задачу, подберём решение, рассчитаем стоимость за 24 часа" },
-              { icon: "Pencil", title: "Дизайн и согласование", desc: "Создадим макеты, поможем с согласованием в архитектуре" },
-              { icon: "Cog", title: "Производство", desc: "Изготовим на собственном производстве с контролем качества" },
-              { icon: "Hammer", title: "Монтаж и поддержка", desc: "Установим, настроим, обеспечим гарантийное обслуживание" }
+              { num: "01", icon: "MessageSquare", title: "Консультация и расчёт", desc: "Обсудим задачу, подберём решение, рассчитаем стоимость за 24 часа" },
+              { num: "02", icon: "Pencil", title: "Дизайн и согласование", desc: "Создадим макеты, поможем с согласованием в архитектуре" },
+              { num: "03", icon: "Cog", title: "Производство", desc: "Изготовим на собственном производстве с контролем качества" },
+              { num: "04", icon: "Hammer", title: "Монтаж и поддержка", desc: "Установим, настроим, обеспечим гарантийное обслуживание" }
             ].map((step, idx) => (
-              <div key={idx} className="relative">
-                <div className="bg-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 mx-auto">
-                  <Icon name={step.icon} className="text-primary" size={32} />
+              <div key={idx} className="grid md:grid-cols-12 gap-8 items-start pb-16 border-b border-border last:border-0">
+                <div className="md:col-span-2 text-6xl font-heading font-bold text-muted-foreground/30">{step.num}</div>
+                <div className="md:col-span-2 flex items-start pt-2">
+                  <Icon name={step.icon} size={40} strokeWidth={1.5} />
                 </div>
-                <div className="absolute top-8 left-1/2 w-full h-0.5 bg-border -z-10 last:hidden hidden md:block" />
-                <h3 className="text-xl font-heading font-semibold mb-3 text-center">{step.title}</h3>
-                <p className="text-muted-foreground text-center text-sm">{step.desc}</p>
+                <div className="md:col-span-8">
+                  <h3 className="text-2xl font-heading font-semibold mb-4 uppercase">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-4">
-        <div className="container mx-auto max-w-2xl">
-          <Card className="border-2 border-primary/20">
-            <CardContent className="p-8 md:p-12">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-                  Получите расчёт стоимости <span className="text-primary">за 24 часа</span>
-                </h2>
-                <p className="text-muted-foreground">Без спама, ответ в течение 2 часов</p>
-              </div>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Input 
-                    placeholder="Ваше имя" 
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="h-12"
-                  />
-                </div>
-                <div>
-                  <Input 
-                    placeholder="Телефон" 
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="h-12"
-                  />
-                </div>
-                <div>
-                  <Textarea 
-                    placeholder="Расскажите о вашем проекте (необязательно)" 
-                    value={formData.comment}
-                    onChange={(e) => setFormData({...formData, comment: e.target.value})}
-                    className="min-h-32"
-                  />
-                </div>
-                <Button type="submit" size="lg" className="w-full text-lg py-6">
-                  <Icon name="Send" className="mr-2" size={20} />
-                  Получить расчёт
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+      <section id="contact" className="py-32 px-6 border-t border-border">
+        <div className="container mx-auto max-w-3xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-heading font-bold mb-6 uppercase">
+              ПОЛУЧИТЕ РАСЧЁТ<br />ЗА 24 ЧАСА
+            </h2>
+            <p className="text-muted-foreground">Без спама, ответ в течение 2 часов</p>
+          </div>
+          
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <Input 
+              placeholder="ВАШЕ ИМЯ" 
+              value={formData.name}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
+              className="h-14 text-sm uppercase"
+            />
+            <Input 
+              placeholder="ТЕЛЕФОН" 
+              type="tel"
+              value={formData.phone}
+              onChange={(e) => setFormData({...formData, phone: e.target.value})}
+              className="h-14 text-sm uppercase"
+            />
+            <Textarea 
+              placeholder="РАССКАЖИТЕ О ВАШЕМ ПРОЕКТЕ (НЕОБЯЗАТЕЛЬНО)" 
+              value={formData.comment}
+              onChange={(e) => setFormData({...formData, comment: e.target.value})}
+              className="min-h-32 text-sm uppercase resize-none"
+            />
+            <Button type="submit" size="lg" className="w-full h-14 text-sm font-medium uppercase">
+              ПОЛУЧИТЬ РАСЧЁТ
+              <Icon name="ArrowRight" className="ml-auto" size={20} />
+            </Button>
+          </form>
         </div>
       </section>
 
-      <footer className="bg-card/50 border-t border-border py-12 px-4">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
+      <footer className="border-t border-border py-16 px-6">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div>
-              <h3 className="text-2xl font-heading font-bold text-primary mb-4">Вавилон</h3>
-              <p className="text-sm text-muted-foreground">Рекламно-производственная компания. 25+ лет создаём вывески, которые работают.</p>
+              <h3 className="text-xl font-heading font-bold mb-6 uppercase">Вавилон</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">Рекламно-производственная компания. 25+ лет создаём вывески, которые работают.</p>
             </div>
             
             <div>
-              <h4 className="font-heading font-semibold mb-4">Услуги</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Наружная реклама</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Внутреннее оформление</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Комплексное решение</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Согласование вывесок</a></li>
+              <h4 className="font-heading font-semibold mb-6 text-sm uppercase tracking-wide">Услуги</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-foreground transition-colors">Наружная реклама</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Внутреннее оформление</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Комплексное решение</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Согласование вывесок</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-heading font-semibold mb-4">Компания</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">О нас</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Портфолио</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Блог</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Контакты</a></li>
+              <h4 className="font-heading font-semibold mb-6 text-sm uppercase tracking-wide">Компания</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li><a href="#" className="hover:text-foreground transition-colors">О нас</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Портфолио</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Блог</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors">Контакты</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-heading font-semibold mb-4">Контакты</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-center gap-2">
-                  <Icon name="Phone" size={16} />
-                  <span>+7 (495) 123-45-67</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="Mail" size={16} />
-                  <span>info@vavilon.ru</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Icon name="MapPin" size={16} />
-                  <span>Москва, ул. Примерная, 1</span>
-                </li>
+              <h4 className="font-heading font-semibold mb-6 text-sm uppercase tracking-wide">Контакты</h4>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li>+7 (495) 123-45-67</li>
+                <li>info@vavilon.ru</li>
+                <li>Москва, ул. Примерная, 1</li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-muted-foreground">© 2024 Вавилон. Все права защищены.</p>
-            <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider">© 2024 Вавилон. Все права защищены.</p>
+            <div className="flex gap-6">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Icon name="Instagram" size={20} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Icon name="Facebook" size={20} />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Icon name="Linkedin" size={20} />
               </a>
             </div>
