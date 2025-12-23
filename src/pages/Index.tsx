@@ -144,8 +144,8 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/50" />
         
         <div className="relative z-10 container mx-auto px-6 max-w-7xl text-white">
-          <h1 className="text-6xl md:text-8xl lg:text-[12rem] font-heading font-bold mb-12 leading-[0.85] animate-fade-in">
-            ВЫВЕСКИ<br />И ОФОРМЛЕНИЕ
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-12 leading-[0.9] animate-fade-in">
+            ВЫВЕСКИ<br />И <span className="text-[rgb(65,165,95)]">ОФОРМЛЕНИЕ</span>
           </h1>
           <div className="grid md:grid-cols-2 gap-16 items-end">
             <div>
@@ -164,7 +164,7 @@ const Index = () => {
               </div>
             </div>
             <div className="flex flex-col gap-4">
-              <Button size="lg" className="w-full justify-start text-base h-16 font-medium bg-white text-black hover:bg-white/90">
+              <Button size="lg" className="w-full justify-start text-base h-16 font-medium" style={{backgroundColor: 'rgb(65,165,95)', color: 'white'}}>
                 ПРОЙТИ БЫСТРЫЙ КВИЗ
                 <Icon name="ArrowRight" className="ml-auto" size={20} />
               </Button>
@@ -180,7 +180,7 @@ const Index = () => {
       <section className="py-32 px-6 border-t border-border">
         <div className="container mx-auto max-w-7xl">
           <h2 className="text-5xl md:text-8xl font-heading font-bold mb-24 uppercase">
-            ПОДБЕРЁМ<br />РЕШЕНИЕ ЗА 3 ВОПРОСА
+            ПОДБЕРЁМ<br /><span className="text-[rgb(65,165,95)]">РЕШЕНИЕ</span> ЗА 3 ВОПРОСА
           </h2>
           
           <div className="grid md:grid-cols-2 gap-16">
@@ -191,8 +191,8 @@ const Index = () => {
                 </div>
                 <div className="h-2 bg-muted rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-foreground transition-all duration-500"
-                    style={{ width: `${((quizStep + 1) / quizQuestions.length) * 100}%` }}
+                    className="h-full transition-all duration-500"
+                    style={{ width: `${((quizStep + 1) / quizQuestions.length) * 100}%`, backgroundColor: 'rgb(65,165,95)' }}
                   />
                 </div>
               </div>
@@ -206,7 +206,7 @@ const Index = () => {
                   <button
                     key={idx}
                     onClick={() => handleQuizAnswer(option)}
-                    className="w-full text-left p-6 border-2 border-border hover:border-foreground transition-all duration-300 group"
+                    className="w-full text-left p-6 border-2 border-border hover:border-[rgb(65,165,95)] transition-all duration-300 group"
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-lg font-medium">{option}</span>
@@ -285,7 +285,7 @@ const Index = () => {
       <section id="services" className="py-32 px-6 border-t border-border">
         <div className="container mx-auto max-w-7xl">
           <h2 className="text-5xl md:text-8xl font-heading font-bold mb-24 uppercase">
-            НАШИ УСЛУГИ
+            <span className="text-[rgb(65,165,95)]">НАШИ</span> УСЛУГИ
           </h2>
           <div className="grid md:grid-cols-3 gap-16">
             {services.map((service, idx) => (
@@ -307,7 +307,7 @@ const Index = () => {
       <section id="portfolio" className="py-32 px-6 border-t border-border bg-muted/30">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-24">
-            <h2 className="text-5xl md:text-8xl font-heading font-bold mb-6 uppercase">ПОРТФОЛИО</h2>
+            <h2 className="text-5xl md:text-8xl font-heading font-bold mb-6 uppercase"><span className="text-[rgb(65,165,95)]">ПОРТФОЛИО</span></h2>
             <p className="text-2xl text-muted-foreground">15 000+ реализованных проектов</p>
           </div>
           
@@ -347,7 +347,7 @@ const Index = () => {
       <section className="py-32 px-6 border-t border-border">
         <div className="container mx-auto max-w-7xl">
           <h2 className="text-5xl md:text-8xl font-heading font-bold mb-24 uppercase text-center">
-            ПОЧЕМУ ВАВИЛОН
+            ПОЧЕМУ <span className="text-[rgb(65,165,95)]">ВАВИЛОН</span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
             {advantages.map((adv, idx) => (
@@ -364,7 +364,7 @@ const Index = () => {
 
       <section className="py-32 px-6 border-t border-border bg-muted/30">
         <div className="container mx-auto max-w-7xl">
-          <h2 className="text-5xl md:text-8xl font-heading font-bold mb-12 uppercase">КАК МЫ РАБОТАЕМ</h2>
+          <h2 className="text-5xl md:text-8xl font-heading font-bold mb-12 uppercase"><span className="text-[rgb(65,165,95)]">КАК</span> МЫ РАБОТАЕМ</h2>
           <p className="text-2xl text-muted-foreground mb-24">Полный цикл — от идеи до установки</p>
           
           <div className="space-y-16">
@@ -392,7 +392,7 @@ const Index = () => {
       <section id="news" className="py-32 px-6 border-t border-border">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-24">
-            <h2 className="text-5xl md:text-8xl font-heading font-bold mb-6 uppercase">НОВОСТИ</h2>
+            <h2 className="text-5xl md:text-8xl font-heading font-bold mb-6 uppercase"><span className="text-[rgb(65,165,95)]">НОВОСТИ</span></h2>
             <p className="text-2xl text-muted-foreground">Последние проекты и достижения</p>
           </div>
 
@@ -430,7 +430,7 @@ const Index = () => {
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-7xl font-heading font-bold mb-6 uppercase leading-tight">
-              ПОЛУЧИТЕ РАСЧЁТ<br />ЗА 24 ЧАСА
+              ПОЛУЧИТЕ <span className="text-[rgb(65,165,95)]">РАСЧЁТ</span><br />ЗА 24 ЧАСА
             </h2>
             <p className="text-muted-foreground">Без спама, ответ в течение 2 часов</p>
           </div>
